@@ -156,7 +156,7 @@ if (isset($_SESSION['message'])):?>
         <br> 
 
         <?php
-          $mysqli = new mysqli('localhost', 'root', '', 'supplier') or die (mysqli_error($mysqli));
+          $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die (mysqli_error($mysqli));
           $result = $mysqli->query("SELECT * FROM report") or die($mysqli->error);
           //pre_r($result);
           ?>

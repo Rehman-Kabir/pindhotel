@@ -61,7 +61,7 @@
 <body>
 
 <?php
-          $mysqli = new mysqli('localhost', 'root', '', 'adminpanel') or die (mysqli_error($mysqli));
+          $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die (mysqli_error($mysqli));
           $result = $mysqli->query("SELECT * FROM salary_payslip") or die($mysqli->error);
           //pre_r($result);
           ?> 

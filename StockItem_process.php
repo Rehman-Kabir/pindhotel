@@ -2,7 +2,7 @@
 
 session_start();
 
-$mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 
 $id = 0;
 $update = false;

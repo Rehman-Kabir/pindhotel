@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="Cashier.php">Pind Hotel</a>
+        <a class="navbar-brand" href="Dashboard.php">Pind Hotel</a>
       
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -36,8 +36,8 @@
       
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="Cashier.php">Home
+            <li class="nav-item ">
+              <a class="nav-link" href="Dashboard.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -85,7 +85,7 @@
       <div class="col-lg-4">
 
       <div float-right>
-      <a align="right" href="CashierStockReport.php" class ="btn btn-info btn-md" >
+      <a align="right" href="StockReports.php" class ="btn btn-info btn-md" >
                           <i class="fa fa-search"> </i> Check Stock</a>
             </div>
       <?php require_once 'Cashier_process.php'; ?>
@@ -231,12 +231,12 @@
           <td>
           <form action="Cashier_process.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $rowinID['id']; ?>">
-          <input type="text" width="" name="rate" placeholder="Discount" required>          
-          <button type="submit" class="btn btn-primary btn-sm" name="discount" >Add</i></button>
-          </form> <b><?php echo $subTota['discount']; ?> </b> Discount added
+          <input type="text" width="" name="rate" placeholder="Discount (%)" required> %          
+          <button type="submit" class="btn btn-primary btn-sm" name="discount" ><i class="fa fa-star fa-spin fa-lg"></i></button>
+          </form> <b><?php echo $subTota['discount']; ?> %</b> Discount added
         </td>
         </tr>
-        <tr style="color: white;" class="bg-success">
+        <tr style="color: black;" class="bg-warning">
           <td colspan="6" align="right"><font size="5">Net Total  (Rs:) &nbsp</font></td>
           <td><font size="5"><b><?php echo $subTota['netTotal']; ?></b></font></td>
         </tr>
@@ -254,28 +254,32 @@
           <td><b><?php echo $subTota['ChangeAmt']; ?><b></td>
         </tr></form>
       </table>
-      </div>
-<div class="row">
+      </div><div class="row">
       <p align="right" >
-      <form>
-      <input type="text" name="" class="form-control" placeholder="Waiter Name"><div class ="col">
-      <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-check fa-lg"></i>
-          </i>Save</button>
-                        </form>
+	
+     <!--<form action="Cashier_mail.php" method="POST">
+      <input type="text" name="email" class="form-control" placeholder="Waiter Name"><div class ="col">
+      
+        <button type="submit" class="btn btn-primary btn-md" name="Cash"><i class="fa fa-envelope fa-lg"></i> Send</button>
+                        </form>-->
 
       <a href="CashierBill.php"
                           class ="btn btn-info btn-md">
                           <i class="fa fa-print fa-lg"></i> Bill
                         </a>
                         
-
-                       <a action="Cashier_process.php" method="POST">
+                       <!--  "Cashier.php?edit2= echo $row['id'];  " 
+                        <a href="Cashier_process.php"
+                          class ="btn btn-warning btn-md">
+                          <i class="fa fa-check fa-lg"></i> Finish
+                        </a>-->
+<form action="Cashier_process.php" method="POST">
 			<button type="submit" class="btn btn-warning btn-md" name="new"><i class="fa fa-check fa-lg"></i>
-          </i>Finish</button>
-			</p></a>
-		
-	
+          </i><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Finish &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+			</p></form>
+                        </p>
 
+      <br>
       </div></div>
       </div>
       </div>

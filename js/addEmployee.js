@@ -103,3 +103,10 @@ function validateSignin(){
     }
 
 }
+
+function getwages(){
+ var table = document.getElementById('dtBasicExample');
+table.style.display = "none";
+	var toDisplay = document.getElementById('dtBasicExample2');
+	toDisplay.style.display = "inline";
+} 

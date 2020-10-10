@@ -68,10 +68,10 @@
 
       
   
-      <form class="form-inline my-2 my-lg-0 align-self-stretch">
+     <!-- <form class="form-inline my-2 my-lg-0 align-self-stretch">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        </form>-->
     </div>
     <!-- Collapsible content -->
   
@@ -164,7 +164,7 @@
         <br>
 
         <?php
-          $mysqli = new mysqli('localhost', 'pharmacy', '', 'expenditure') or die (mysqli_error($mysqli));
+          $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die (mysqli_error($mysqli));
           $result = $mysqli->query("SELECT * FROM supplierdetails") or die($mysqli->error);
           //pre_r($result);
           ?>    

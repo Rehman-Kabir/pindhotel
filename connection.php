@@ -1,8 +1,8 @@
 <?php 
 $dbhost = 'localhost';
-$dbuser = 'pharmacy';
+$dbuser = 'ahad';
 $dbpass = '';
-$db = 'expenditure';
+$db = 'restaurant';
 
 $conn = new mysqli($dbhost, $dbuser, $dbpass, $db);
 if($conn -> connect_error){

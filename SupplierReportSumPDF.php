@@ -7,7 +7,7 @@
         
 $d='5';
 require('fpdf181/fpdf.php');
-$mysqli = new mysqli('localhost', 'root', '', 'supplier') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 $result = $mysqli->query("SELECT * FROM report") or die($mysqli->error);
 
 $pdf = new FPDF();

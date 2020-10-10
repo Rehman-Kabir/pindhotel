@@ -21,7 +21,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="Dashboard.php">Pind Hotel</a>
+        <a class="navbar-brand" href="Cashier.php">Pind Hotel</a>
       
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -35,34 +35,19 @@
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
 		<li class="nav-item ">
-              <a class="nav-link" href="Dashboard.php">Dashboard
+              <a class="nav-link" href="cashier.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="Stock.php">Stockhome
+              <a class="nav-link" href="CashierStockItem.php">AddStock
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            
-            <!-- Dropdown -->
-           <!-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Reports</a>
-              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Summary</a>
-                <a class="dropdown-item" href="#">Reports Store</a>
-                
-              </div>
-            </li>-->
-              
-            <li class="nav-item">
-              <a class="nav-link" href="StockItem.php">Addstock</a>
-            </li>
-
+           
           </ul>
         </div>
-        <!-- Collapsible content -->
+        
       
       </nav>
   <!--/.Navbar-->
@@ -176,7 +161,8 @@
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
               <thead style="color: white;" class="bg-primary" align="center">
                 <tr>
-                
+                <th class="th-sm">ID
+                  </th>
                   <th class="th-sm">ItemID
                   </th>
                   <th class="th-sm">Quantity
@@ -199,6 +185,7 @@
               <?php
 		          	while($row = $result->fetch_assoc()): ?>
 			          	<tr align="center">
+                    <td><b><?php echo $row['id']; ?></b></td>
 		    <td><b><?php echo $row['ItemID']; ?></b></td>
                     <td><b><?php echo $row['ItemQuantity']; ?></b></td>
                     <td><b><?php echo $row['ret_qty']; ?></b></td>

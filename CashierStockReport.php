@@ -21,7 +21,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="Dashboard.php">Pind Hotel</a>
+        <a class="navbar-brand" href="Cashier.php">Pind Hotel</a>
       
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -35,17 +35,12 @@
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
 	 <li class="nav-item ">
-              <a class="nav-link" href="Dashboard.php">Dashboard
+              <a class="nav-link" href="Cashier.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="Stock.php">Stockhome
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-	 <li class="nav-item ">
-              <a class="nav-link" href="StockItem.php">Addstock
+              <a class="nav-link" href="CashierStockItem.php">Addstock
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -159,12 +154,7 @@
 <br><br><br>
 
 
-
-<!-- Footer -->
-
-  <!-- Footer -->
-  
-  <!--Ens of the footer-->        
+       
   
   
   

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Sign In | Nimedco Pharmacy</title>
+  <title>Sign In | Pind Hotel</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="index.php">Taimoor Pharmacy</a>
+    <a class="navbar-brand" href="signIn.php">Pind Hotel <br> (Al Mohsin Group)</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -83,17 +83,17 @@ if (isset($_SESSION['message'])):?>
       </div>
 
       <div class="d-flex justify-content-around">
-        <div>
-          <!-- Remember me -->
+       <!-- <div>
+           Remember me 
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
             <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
-          </div>
+          </div>-->
         </div>
-        <div>
-          <!-- Forgot password -->
+       <!--  <div>
+          Forgot password 
           <a href="">Forgot password?</a>
-        </div>
+        </div>-->
       </div>
 
       <!-- Sign in button -->

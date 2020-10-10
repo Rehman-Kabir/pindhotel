@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Out of Stock | Nimedco Pharmacy</title>
+  <title>Out of Stock | Pind Hotel</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
@@ -23,7 +23,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="Dashboard.php">Admin Panel</a>
+        <a class="navbar-brand" href="Dashboard.php">Pind Hotel</a>
       
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -36,15 +36,15 @@
       
           <!-- Links -->
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
+            <li class="nav-item">
+              <a class="nav-link" href="Dashboard.php">Dashboard
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             
       
             <!-- Dropdown -->
-            <li class="nav-item dropdown">
+           <!-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">Reports</a>
               <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -52,19 +52,19 @@
                 <a class="dropdown-item" href="#">Reports Store</a>
                 
               </div>
-            </li>
+            </li>-->
 
             <li class="nav-item">
-              <a class="nav-link" href="stock.php">Stock</a>
+              <a class="nav-link" href="stock.php">Stockhome</a>
             </li>
       
           </ul>
           <!-- Links -->
       
-          <form class="form-inline my-2 my-lg-0 align-self-stretch">
+         <!-- <form class="form-inline my-2 my-lg-0 align-self-stretch">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form>-->
         </div>
         <!-- Collapsible content -->
       
@@ -74,7 +74,7 @@
 
 
   <?php
-	        $mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+	        $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
         	$result = $mysqli->query("SELECT * FROM stockitem WHERE ItemQuantity = 0 order by id") or die($mysqli->error);
 	        //pre_r($result);
         ?>
@@ -137,7 +137,7 @@
             <h2>RUNNING OUT OF STOCK</h2>
 
             <?php
-	        $mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+	        $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
         	$result2 = $mysqli->query("SELECT * FROM stockitem WHERE (ItemQuantity <= 10) and (ItemQuantity != 0) order by ItemQuantity") or die($mysqli->error);
 	        //pre_r($result);
         ?>

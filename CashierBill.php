@@ -1,23 +1,24 @@
 <?php
+
 require('fpdf181/fpdf.php');
-$mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 
 
 $pdf = new FPDF('P','mm','A5');
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 30);
-$pdf->cell(128,12, 'Nimedco Pharmacy', 0, 1 ,'C');
-
+$pdf->cell(128,12, 'PIND HOTEL', 0, 1 ,'C');
+$pdf->SetFont('Arial', '', 12);
+$pdf->cell(128,4, 'Al Mohsin Group', 0, 1 ,'C');
 $pdf->SetFont('Arial', '', 8);
-$pdf->cell(128,4, 'No.33, Gampaha Road, Meerigama, Sri Lanka', 0, 1 ,'C');
-$pdf->cell(128,4, 'www.nimedco.lk', 0, 1 ,'C');
-$pdf->cell(128,4, 'nimedco.pharmacy@gmail.com', 0, 1 ,'C');
-$pdf->cell(128,4, '+ 94 770 828 319', 0, 1 ,'C');
+$pdf->cell(128,4, '5Km, Chunian, Illabad Road, District Kasur', 0, 1 ,'C');
+$pdf->cell(128,4, '', 0, 1 ,'C');
+$pdf->cell(128,4, '', 0, 1 ,'C');
 $pdf->cell(50,5,'', 0, 1,'C'); 
 
 $pdf->SetFont('Arial', '', 9);
 
-date_default_timezone_set('Asia/Colombo');
+date_default_timezone_set('Asia/Karachi');
 $date = date('d/m/Y', time());
 $date2 = date('h:i:s a', time());
 $pdf->cell(10,5,'Date : ' , 0, 0,'L'); 
@@ -32,7 +33,13 @@ $pdf->cell(128,5,'--------------------------------------------------------------
 $id = $rowinID['id'];
 $result = $mysqli->query("SELECT * FROM cashierinvoiceitem WHERE invoiceID='$id'") or die($mysqli->error);
 $pdf->SetFont('Arial', '', 10);
-                   
+
+		    
+                    $pdf->cell(8,6, 'Qty', 0, 0 ,'L');
+                    $pdf->cell(17,6, 'Item', 0, 0 ,'L');
+                    $pdf->cell(25,6, 'Description', 0, 0 ,'L');
+                    $pdf->cell(68,6, 'Category', 0, 0,'L');
+                    $pdf->cell(12,6, 'Price', 0, 1,'L');               
 $c = 1;
 		while($row = $result->fetch_assoc()){
             
@@ -43,9 +50,9 @@ $c = 1;
                     $pdf->cell(3,4, $c, 0, 0 ,'L');
                     $pdf->cell(2,4, '.', 0, 0 ,'L');
                     $pdf->cell(20,4, $item['ItemName'], 0, 0 ,'L');
-                    $pdf->cell(20,4, $item['Description'], 0, 0 ,'L');
+                    $pdf->cell(30,4, $item['Description'], 0, 0 ,'L');
                     $pdf->cell(20,4, $item['Category'], 0, 1 ,'L');
-                    $pdf->cell(50,5, $row['ItemID'], 0, 0 ,'L');
+                    $pdf->cell(50,5, '' , 0, 0 ,'L');
                     $pdf->cell(2,5, '(', 0, 0 ,'L');
                     $pdf->cell(15,5, $row['ItemQuantity'], 0, 0 ,'C');
                     $pdf->cell(2,5, 'x', 0, 0 ,'L');
@@ -68,7 +75,7 @@ $c = 1;
         
         $pdf->cell(75,4, 'Discount :  ', 0, 0 ,'R');
         $pdf->cell(49,4, $subTota['discount'], 0, 0 ,'R');
-        $pdf->cell(4,4, '%', 0, 1 ,'R');
+        $pdf->cell(4,4, '', 0, 1 ,'R');
         $pdf->SetFont('Arial', '', 9);
         $pdf->cell(128,5,'------------------------------------------------------------------------------------------------------------------------', 0, 1,'C');
         $pdf->SetFont('Arial', '', 20);

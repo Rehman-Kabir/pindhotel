@@ -11,7 +11,7 @@ $Total ='';
 
 $new ='';
 
-$mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 
 if (isset($_POST['new'])){
     $mysqli->query("INSERT INTO cashierinvoice(subTotal, discount, netTotal) VALUES(0,0,0)") or die($mysqli->error);
@@ -22,7 +22,7 @@ if (isset($_POST['new'])){
 
 
 if(isset($_POST['save'])){
-	$ItemID = $_POST['ItemID'];
+    $ItemID = $_POST['ItemID'];
     $ItemQuantity = $_POST['ItemQuantity'];
     $id = $_POST['id'];
     
@@ -154,7 +154,8 @@ if (isset($_POST['discount'])){
     
     
     $mysqli->query("UPDATE cashierinvoice SET netTotal='$subtot' WHERE id='$id'") or die($mysqli->error);
-    $NnetTotal = $subtot - (($subtot*$DiscountAm)/100);
+    // $NnetTotal = $subtot - (($subtot*$DiscountAm)/100);
+	$NnetTotal = $subtot - $DiscountAm;
     $mysqli->query("UPDATE cashierinvoice SET netTotal='$NnetTotal', discount='$DiscountAm' WHERE id='$id'") or die($mysqli->error);
 
     header("location: CashierInvoice.php");

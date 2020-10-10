@@ -7,21 +7,21 @@
         
 $d='5';
 require('fpdf181/fpdf.php');
-$mysqli = new mysqli('localhost', 'root', '', 'nimedco') or die(mysqli_error($mysqli));
+$mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 $result = $mysqli->query("SELECT * FROM stockitem WHERE ItemQuantity != 0") or die($mysqli->error);
 $resultOut = $mysqli->query("SELECT * FROM stockitem WHERE ItemQuantity = 0") or die($mysqli->error);
 $resultRun = $mysqli->query("SELECT * FROM stockitem WHERE ItemQuantity <= 10 and ItemQuantity !=0 ORDER BY ItemQuantity") or die($mysqli->error);
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', '', 30);
-$pdf->cell(190,10, 'Nimedco Pharmacy', 0, 1 ,'C');
+$pdf->cell(190,10, 'PIND HOTEL', 0, 1 ,'C');
 
 $pdf->SetFont('Arial', '', 25);
 $pdf->cell(190,10, 'Stock Report', 0, 1 ,'C');
 $pdf->cell(50,10,'', 0, 1,'C'); 
 $pdf->SetFont('Arial', '', 12);
 
-date_default_timezone_set('Asia/Colombo');
+date_default_timezone_set('Asia/Karachi');
 $date = date('d/m/Y   h:i:s a', time());
 $pdf->cell(30,5,'Date & Time : ' , 0, 0,'C'); 
 $pdf->cell(50,5,$date , 0, 1,'C'); 
