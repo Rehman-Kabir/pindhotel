@@ -57,7 +57,7 @@ if (isset($_GET['Edit'])){
 }
 
 if(isset($_POST['Update'])){
-echo "hello chal yar";
+ $id = $_POST['id'];
  $bill_year = $_POST['billyear'];   
  $bill_month = $_POST['billmonth'];
  $bill_type = $_POST['billtype'];
@@ -65,13 +65,6 @@ echo "hello chal yar";
  $total_amount = $_POST['totamouunt'];
  $paid = $_POST['paid'];
  $paid_date = $_POST['paiddate'];
-	echo  $bill_year;
-	echo  $bill_month;
-	echo  $bill_type;
-	echo  $total_units;
-	echo  $total_amount;
-	echo  $paid;
-	echo  $paid_date;
 
 
 	$mysqli->query("UPDATE expenditure SET BillYear='$bill_year', BillMonth='$bill_month', BillType='$bill_type', TotalUnits='$total_units', TotalAmount='$total_amount',Paid='$paid', PaidDate = '$paid_date'

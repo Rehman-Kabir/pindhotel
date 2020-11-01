@@ -240,46 +240,110 @@
           <td colspan="6" align="right"><font size="5">Net Total  (Rs:) &nbsp</font></td>
           <td><font size="5"><b><?php echo $subTota['netTotal']; ?></b></font></td>
         </tr>
-        <form action="Cashier_process.php" method="POST">
         <tr>
+<form action="Cashier_process.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $rowinID['id']; ?>">
           <td colspan="6" align="right">Cash  (Rs:)&nbsp</td>
           <td>&nbsp<input type="text" width="" name ="Amt" placeholder="Cash" required>&nbsp&nbsp&nbsp
-          <button type="submit" class="btn btn-primary btn-sm" name="Cash"><i class="fa fa-hand-holding-usd fa-lg"></i></button>
+          <button type="submit" class="btn btn-primary btn-sm" value ="<?php echo $cashamt; ?>" name="Cash"><i class="fa fa-hand-holding-usd fa-lg"></i></button>
           <br>Cash Amount = Rs: <b><?php echo $subTota['CashAmt']; ?></b>
         </td>
         </tr>
         <tr>
           <td colspan="6" align="right">Change  (Rs:)&nbsp</td>
           <td><b><?php echo $subTota['ChangeAmt']; ?><b></td>
-        </tr></form>
+        </tr>
+        <tr>
+        <input type="hidden" name="id" value="<?php echo $rowinID['id']; ?>">
+          <td colspan="6" align="right">Waiter id&nbsp</td>
+          <td>&nbsp<input type="text" width="" name ="wt" placeholder="Waiter id" required>&nbsp&nbsp&nbsp
+          <button type="submit" class="btn btn-primary btn-sm" name="wat"><i class="fa fa-hand-holding-usd fa-lg"></i></button>
+         </td>
+        </tr>
+<tr>
+<td><button type="submit" class="btn btn-success btn-md" name="savedata">Save</button></td>
+</tr>
+</form>
       </table>
       </div>
-<div class="row">
+
       <p align="right" >
-      <form>
-      <input type="text" name="" class="form-control" placeholder="Waiter Name"><div class ="col">
-      <button type="submit" class="btn btn-primary btn-md"><i class="fa fa-check fa-lg"></i>
-          </i>Save</button>
-                        </form>
+    
+<div class = "row">
 
-      <a href="CashierBill.php"
-                          class ="btn btn-info btn-md">
-                          <i class="fa fa-print fa-lg"></i> Bill
-                        </a>
-                        
+     
+  <a href="CashierBill.php">
+			<button type="submit" class="btn btn-default btn-md" >Bill</button>
+			</a> 
+                       <form action="Cashierinvoice.php" method="POST">
+			
+			</p></form> 
 
-                       <a action="Cashier_process.php" method="POST">
-			<button type="submit" class="btn btn-warning btn-md" name="new"><i class="fa fa-check fa-lg"></i>
-          </i>Finish</button>
-			</p></a>
+                        <form action="Cashier_process.php" method="POST">
+			<button type="submit" class="btn btn-warning btn-md" name="new">Finish</button>
+			</p></form>
 		
 	
 
-      </div></div>
+      </div>
       </div>
       </div>
 </div>
+<?php
+	      $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
+        	$result = $mysqli->query("SELECT id,netTotal,discount,dateTime,waiter_id,paid FROM `cashierinvoice` WHERE paid='0' order by id desc") or die($mysqli->error);
+	        //pre_r($result);
+        ?>
+  <div class="container">
+  <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+              <thead style="color: white;" class="bg-primary" align="center">
+                <tr>
+                  <th class="th-sm">ID
+                  </th>
+                  <th class="th-sm">Net Total
+                  </th>
+                  <th class="th-sm">Discount
+                  </th>
+                  <th class="th-sm">Date and Time
+                  </th>
+                  <th class="th-sm">Waiter ID
+                  </th>
+
+		<th class="th-sm">Paid
+                  </th>
+                    </tr>
+              </thead>
+              <tbody>
+                
+              <?php
+		          	while($row = $result->fetch_assoc()): ?>
+			          	<tr align="center">
+					          <td><b><?php echo $row['id']; ?></b></td>
+                    <td><b><?php echo $row['netTotal']; ?></b></td>
+                    <td><b><?php echo $row['discount']; ?></b></td>
+                    <td><b><?php echo $row['dateTime']; ?></b></td>
+		    <td><b><?php echo $row['waiter_id']; ?></b></td>
+                    
+			<td><a href="cashierinvoice.php?paid=<?php echo $row['id']; ?>" class="btn btn-success">paid</a>
+			
+
+</td>
+			
+ <!--
+				          	<td align="center">
+					            	<a href="?edit=<?php echo $row['id']; ?>"
+                          class ="btn btn-info btn-sm" >
+                          <i class="fa fa-edit"></i>
+                        </a>
+					            	<a href="StockItem_process.php?delete=<?php echo $row['id']; ?>"
+                          class ="btn btn-danger btn-sm">
+                          <i class="fa fa-trash"></i>
+                        </a>
+				          	</td> -->
+			          	</tr>
+			        <?php endwhile; ?>
+
+              </tbody>
      
 <?php
 	            function pre_r( $array ){

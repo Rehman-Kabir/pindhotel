@@ -72,7 +72,6 @@ if(isset($_POST['UPDATE'])){
 	$FirstName = $_POST['FirstName'];
     $LastName = $_POST['LastName'];
     $UserName = $_POST['UserName'];
-    //$Email = $_POST['Email'];
     $NICNumber = $_POST['NICNumber'];
     $Address = $_POST['Address'];
     $PhoneNumber = $_POST['PhoneNumber'];

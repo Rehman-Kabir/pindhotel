@@ -42,10 +42,14 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
+<li class="nav-item">
+          <a class="nav-link" href="cashreport.php">Cashreport</a>
+        </li>
      
 <li class="nav-item">
           <a class="nav-link" href="SignIn.php">logout</a>
         </li>
+
   
       </ul>
       

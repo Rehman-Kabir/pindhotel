@@ -87,7 +87,7 @@
                 </th>
                 <th class="th-sm">Purchase Price
                 </th>                
-		            <th class="th-sm">Date
+		            <th class="th-sm">Price
                 </th>
               </tr>
             </thead>

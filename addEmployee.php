@@ -111,12 +111,6 @@
             <input type="text" class="form-control" id="UserName" value="<?php echo $UserName;?>" placeholder="User Name" name="UserName">
             <span class="helper-text"></span>
           </div>
-          <!-- Default input -->
-         <!-- <div class="form-group">
-            <label for="Email">Email</label>
-            <input type="email" class="form-control" id="Email" value="<?php echo $Email;?>" placeholder="email" name="Email">
-            <span id="Brand" class="text-danger font-weight-bold"></span>
-          </div>-->
           <!-- Grid row -->
           <div class="form-row">
             <!-- Default input -->

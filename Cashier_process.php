@@ -9,12 +9,13 @@ $ItemName ='';
 $ItemQuantity ='';
 $Total ='';
 
+
 $new ='';
 
 $mysqli = new mysqli('localhost', 'ahad', '', 'restaurant') or die(mysqli_error($mysqli));
 
 if (isset($_POST['new'])){
-    $mysqli->query("INSERT INTO cashierinvoice(subTotal, discount, netTotal) VALUES(0,0,0)") or die($mysqli->error);
+    $mysqli->query("INSERT INTO cashierinvoice(subTotal, discount, netTotal, waiter_id) VALUES(0,0,0,0)") or die($mysqli->error);
     
 
     header("location: CashierInvoice.php");
@@ -171,7 +172,34 @@ if(isset($_POST['Cash'])){
     $mysqli->query("UPDATE cashierinvoice SET CashAmt='$Amount',ChangeAmt='$new' WHERE id='$id'") or die($mysqli->error);
     header("location: CashierInvoice.php");
 }
+if(isset($_POST['wat'])){
+	$Amount = $_POST['wt'];
+    $id = $_POST['id'];
+    $intot = $mysqli->query("SELECT * FROM cashierinvoice WHERE id='$id'") or die($mysqli->error);
+    $new = $Amount;
+    $mysqli->query("UPDATE cashierinvoice SET waiter_id='$new' WHERE id='$id'") or die($mysqli->error);
+    header("location: CashierInvoice.php");
+}
+
+if (isset($_POST['savedata'])){
+    $Amount = $_POST['Amt'];
+    $wtr = $_POST['wt'];
     
+    $id = $_POST['id'];
+    $intot = $mysqli->query("SELECT * FROM cashierinvoice WHERE id='$id'") or die($mysqli->error);
+	$tot = $intot->fetch_array();
+    $nettot=$tot['netTotal'];
+    $new = $Amount - $nettot;
+    $mysqli->query("UPDATE cashierinvoice SET CashAmt='$Amount',ChangeAmt='$new', waiter_id='$wtr' WHERE id='$id'") or die($mysqli->error);
+    header("location: CashierInvoice.php");
+
+}
+if(isset($_GET['paid'])){
+    $id = $_GET['paid'];	
+	
+	$mysqli->query("UPDATE cashierinvoice SET paid ='1' WHERE id='$id'") or die($mysqli->error);
+	header('location: cashierinvoice.php');
+}
 
 ?>
 
